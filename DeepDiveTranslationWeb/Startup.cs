@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using DeepDiveTranslationWeb.Data;
 using DeepDiveTranslationWeb.Models;
 using DeepDiveTranslationWeb.Services;
+using System.Globalization;
 
 namespace DeepDiveTranslationWeb
 {
@@ -42,6 +43,12 @@ namespace DeepDiveTranslationWeb
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            var suppoertedCultures = new[]
+            {
+                new CultureInfo("en-US"),
+                new CultureInfo("sv-SE")
+            };
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
