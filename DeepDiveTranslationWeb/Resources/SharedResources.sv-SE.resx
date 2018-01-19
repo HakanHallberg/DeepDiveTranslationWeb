@@ -120,4 +120,7 @@
   <data name="ContactUs" xml:space="preserve">
     <value>Vänligen ring detta nummer</value>
   </data>
+  <data name="Email" xml:space="preserve">
+    <value>E-post</value>
+  </data>
 </root>

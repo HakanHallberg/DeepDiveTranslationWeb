@@ -14,6 +14,7 @@ using DeepDiveTranslationWeb.Services;
 using System.Globalization;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc.Razor;
+using DeepDiveTranslationWeb.Resources;
 
 namespace DeepDiveTranslationWeb
 {
@@ -41,7 +42,12 @@ namespace DeepDiveTranslationWeb
 
             services.AddMvc()
                 .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix,
-                    opts => { opts.ResourcesPath = "Resources"; });
+                    opts => { opts.ResourcesPath = "Resources"; })
+                    .AddDataAnnotationsLocalization(options =>
+                    {
+                        options.DataAnnotationLocalizerProvider = (type, factory) =>
+                        factory.Create(typeof(SharedResources));
+                    });
             services.AddLocalization();
         }
 

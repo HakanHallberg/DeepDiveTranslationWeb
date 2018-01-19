@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DeepDiveTranslationWeb.Resources;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace DeepDiveTranslationWeb.Models.AccountViewModels
     {
         [Required]
         [EmailAddress]
-        [Display(Name = "Email")]
+        [Display(Name = "Email", ResourceType =typeof(SharedResources))]
         public string Email { get; set; }
 
         [Required]
