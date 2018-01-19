@@ -12,6 +12,7 @@ using DeepDiveTranslationWeb.Data;
 using DeepDiveTranslationWeb.Models;
 using DeepDiveTranslationWeb.Services;
 using System.Globalization;
+using Microsoft.AspNetCore.Localization;
 
 namespace DeepDiveTranslationWeb
 {
@@ -43,10 +44,17 @@ namespace DeepDiveTranslationWeb
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            var suppoertedCultures = new[]
+            var supportedCultures = new[]
             {
                 new CultureInfo("en-US"),
                 new CultureInfo("sv-SE")
+            };
+
+            var options = new RequestLocalizationOptions
+            {
+                DefaultRequestCulture = new RequestCulture("en-US"),
+                SupportedCultures = supportedCultures,
+                SupportedUICultures = supportedCultures
             };
 
             if (env.IsDevelopment())
