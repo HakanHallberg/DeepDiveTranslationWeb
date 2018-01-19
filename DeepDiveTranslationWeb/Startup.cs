@@ -13,6 +13,7 @@ using DeepDiveTranslationWeb.Models;
 using DeepDiveTranslationWeb.Services;
 using System.Globalization;
 using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Mvc.Razor;
 
 namespace DeepDiveTranslationWeb
 {
@@ -38,7 +39,9 @@ namespace DeepDiveTranslationWeb
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
 
-            services.AddMvc();
+            services.AddMvc()
+                .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix,
+                    opts => { opts.ResourcesPath = "Resources"; });
             services.AddLocalization();
         }
 

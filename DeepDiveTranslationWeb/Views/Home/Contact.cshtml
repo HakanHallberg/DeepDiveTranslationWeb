@@ -1,8 +1,11 @@
-﻿@{
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+    
+@{
     ViewData["Title"] = "Contact";
 }
 <h2>@ViewData["Title"]</h2>
 <h3>@ViewData["Message"]</h3>
+<h3>@localizer["Testing"]</h3>
 
 <address>
     One Microsoft Way<br />
