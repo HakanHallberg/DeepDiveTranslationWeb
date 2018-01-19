@@ -39,6 +39,7 @@ namespace DeepDiveTranslationWeb
             services.AddTransient<IEmailSender, EmailSender>();
 
             services.AddMvc();
+            services.AddLocalization();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,6 +56,14 @@ namespace DeepDiveTranslationWeb
                 DefaultRequestCulture = new RequestCulture("en-US"),
                 SupportedCultures = supportedCultures,
                 SupportedUICultures = supportedCultures
+            };
+
+            options.RequestCultureProviders = new[]
+            {
+                new CookieRequestCultureProvider()
+                {
+                    Options = options
+                }
             };
 
             if (env.IsDevelopment())
