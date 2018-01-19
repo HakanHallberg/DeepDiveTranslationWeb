@@ -65,6 +65,7 @@ namespace DeepDiveTranslationWeb
                     Options = options
                 }
             };
+            app.UseRequestLocalization(options);
 
             if (env.IsDevelopment())
             {
