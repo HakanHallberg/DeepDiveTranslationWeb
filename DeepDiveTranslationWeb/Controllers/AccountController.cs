@@ -71,7 +71,7 @@ namespace DeepDiveTranslationWeb.Controllers
                         ? "en-US" : user.CultureCode;
                     var key = CookieRequestCultureProvider.DefaultCookieName;
                     var value = CookieRequestCultureProvider.MakeCookieValue(
-                        new RequestCulture("sv-SE"));
+                        new RequestCulture(code));
                     Response.Cookies.Append(key, value);
                     return RedirectToLocal(returnUrl);
                 }
